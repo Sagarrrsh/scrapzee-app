@@ -51,15 +51,5 @@ services:
     ports:
       - "5003:5003"
 
-  frontend:
-    build: ./frontend
-    container_name: scrapzee-frontend
-    depends_on:
-      - auth-service
-      - pricing-service
-      - user-service
-    ports:
-      - "3000:80"
-
 volumes:
   mysql_data:
