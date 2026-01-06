@@ -11,34 +11,39 @@ spec:
   - host: scrapzee.local
     http:
       paths:
+
+      # FRONTEND
       - path: /(.*)
         pathType: Prefix
         backend:
           service:
-            name: scrapzee-frontend
+            name: frontend
             port:
               number: 80
 
+      # AUTH
       - path: /api/auth/?(.*)
         pathType: Prefix
         backend:
           service:
             name: auth-service
             port:
-              number: 5001
+              number: 80
 
+      # PRICING
       - path: /api/pricing/?(.*)
         pathType: Prefix
         backend:
           service:
             name: pricing-service
             port:
-              number: 5002
+              number: 80
 
+      # USERS
       - path: /api/users/?(.*)
         pathType: Prefix
         backend:
           service:
             name: user-service
             port:
-              number: 5003
+              number: 80
