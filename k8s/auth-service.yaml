@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: auth-service
-        image: sagar1003/auth-service:v1
+        image: sagar1003/scrapzee-auth-api:v1
         ports:
         - containerPort: 5001
         env:
@@ -41,4 +41,5 @@ spec:
   ports:
   - port: 80
     targetPort: 5001
+
 
