@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: scrapzee.local
+  - host: 
     http:
       paths:
 
@@ -47,3 +47,4 @@ spec:
             name: user-service
             port:
               number: 80
+
