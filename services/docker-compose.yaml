@@ -18,7 +18,7 @@ services:
       retries: 10
 
   auth-service:
-    build: ./auth
+    build: ./auth-service
     container_name: scrapzee-auth
     depends_on:
       - mysql
@@ -29,7 +29,7 @@ services:
       - "5001:5001"
 
   pricing-service:
-    build: ./pricing
+    build: ./pricing-service
     container_name: scrapzee-pricing
     depends_on:
       - mysql
@@ -41,7 +41,7 @@ services:
       - "5002:5002"
 
   user-service:
-    build: ./users
+    build: ./user-service
     container_name: scrapzee-users
     depends_on:
       - mysql
@@ -66,3 +66,4 @@ services:
 
 volumes:
   mysql_data:
+
