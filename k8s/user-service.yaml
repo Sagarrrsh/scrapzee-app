@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: sagar1003/user-service:v1
+        image: sagar1003/scrapzee-user-api:v1
         ports:
         - containerPort: 5003
         env:
@@ -42,4 +42,5 @@ spec:
   ports:
   - port: 80
     targetPort: 5003
+
 
