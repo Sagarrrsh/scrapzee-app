@@ -3,16 +3,14 @@ kind: Ingress
 metadata:
   name: scrapzee-ingress
   namespace: scrapzee
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
     - http:
         paths:
 
-          # FRONTEND
-          - path: /(.*)
+          # Frontend
+          - path: /
             pathType: Prefix
             backend:
               service:
@@ -20,8 +18,8 @@ spec:
                 port:
                   number: 80
 
-          # AUTH SERVICE
-          - path: /api/auth(/|$)(.*)
+          # AUTH API
+          - path: /api/auth
             pathType: Prefix
             backend:
               service:
@@ -29,8 +27,8 @@ spec:
                 port:
                   number: 80
 
-          # PRICING SERVICE
-          - path: /api/pricing(/|$)(.*)
+          # PRICING API
+          - path: /api/pricing
             pathType: Prefix
             backend:
               service:
@@ -38,8 +36,8 @@ spec:
                 port:
                   number: 80
 
-          # USER SERVICE
-          - path: /api/users(/|$)(.*)
+          # USER API
+          - path: /api/users
             pathType: Prefix
             backend:
               service:
