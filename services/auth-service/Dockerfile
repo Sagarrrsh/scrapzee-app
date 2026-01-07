@@ -1,4 +1,3 @@
-# ---------- BUILD STAGE ----------
 FROM python:3.11-slim AS builder
 
 WORKDIR /app
@@ -14,8 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --prefix=/install -r requirements.txt
 
-
-# ---------- RUNTIME STAGE ----------
+# --------
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -23,12 +21,11 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-# Copy installed packages ONLY
 COPY --from=builder /install /usr/local
 
-# Copy app source
 COPY . .
 
 EXPOSE 5001
 
 CMD ["gunicorn", "-b", "0.0.0.0:5001", "app:app"]
+
