@@ -1,5 +1,3 @@
-# scrapzee-app
-
 # 🚀 Scrapzee - Cloud-Native Microservices Platform
 
 > A production-ready scrap management platform built with microservices architecture, containerized with Docker, orchestrated by Kubernetes, and deployed using GitOps principles with ArgoCD.
@@ -161,9 +159,7 @@ scrapzee-microservices/
 │   ├── 05-user-service.yaml
 │   ├── 06-ingress.yaml        # NGINX Ingress routing rules
 │   └── 08-frontend.yaml       # Frontend deployment
-├── argocd/
-│   ├── application.yaml       # ArgoCD application
-│   └── project.yaml           # ArgoCD project
+├
 └── README.md
 ```
 
@@ -481,8 +477,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👤 Author
 
 **Your Name**
-- GitHub: [@your-username](https://github.com/your-username)
-- LinkedIn: [Your Name](https://linkedin.com/in/your-profile)
+- GitHub: [@Sagar S H](https://github.com/Sagarrrsh)
+- LinkedIn: [Sagar S H](https://linkedin.com/in/sagar-s-h-212914249)
 
 ---
 
