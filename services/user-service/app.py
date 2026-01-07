@@ -395,5 +395,6 @@ def dashboard():
 with app.app_context():
     db.create_all()
 
-# no app.run() — Gunicorn runs the app
+
+
 
