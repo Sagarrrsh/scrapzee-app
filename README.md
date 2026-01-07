@@ -99,7 +99,7 @@ Routing Rules:
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/scrapzee-microservices.git
+git clone https://github.com/Sagarrrsh/scrapzee-app.git
 cd scrapzee-microservices
 ```
 
