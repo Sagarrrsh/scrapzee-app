@@ -8,7 +8,7 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
-# ---------------- CONFIG ----------------
+# ---- CONFIG 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -25,7 +25,7 @@ if not AUTH_SERVICE_URL:
 db = SQLAlchemy(app)
 
 
-# ---------------- MODELS ----------------
+# ---- MODELS 
 class ScrapCategory(db.Model):
     __tablename__ = "scrap_categories"
 
@@ -61,7 +61,7 @@ class DynamicPricing(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
 
-# ---------------- HELPERS ----------------
+# --- HELPERS 
 def verify_token(token):
     """Ask Auth service to validate JWT"""
     try:
@@ -89,7 +89,7 @@ def require_auth():
     return verify_token(token)
 
 
-# ---------------- ROUTES ----------------
+# ---- ROUTES 
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "healthy", "service": "pricing-service"}), 200
@@ -310,4 +310,4 @@ with app.app_context():
     db.create_all()
     init_sample_data()
 
-# No app.run() — Gunicorn will run the app
+
