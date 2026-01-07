@@ -10,7 +10,7 @@ from functools import wraps
 app = Flask(__name__)
 CORS(app)
 
-# -------------------- CONFIG --------------------
+# --- CONFIG 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -24,7 +24,7 @@ if not app.config["SECRET_KEY"]:
 db = SQLAlchemy(app)
 
 
-# -------------------- MODEL --------------------
+# ----- MODEL 
 class User(db.Model):
     __tablename__ = "users"
 
@@ -44,7 +44,7 @@ class User(db.Model):
         return check_password_hash(self.password_hash, password)
 
 
-# -------------------- TOKEN DECORATOR --------------------
+# ---- TOKEN DECORATOR 
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -75,7 +75,7 @@ def token_required(f):
     return decorated
 
 
-# -------------------- ROUTES --------------------
+# ----- ROUTES 
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "healthy", "service": "auth-service"}), 200
@@ -212,3 +212,4 @@ def refresh(current_user):
 # -------------------- INIT DB --------------------
 with app.app_context():
     db.create_all()
+
