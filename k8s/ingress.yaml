@@ -6,38 +6,36 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - http:
-        paths:
+  - http:
+      paths:
+      - path: /api/auth
+        pathType: Prefix
+        backend:
+          service:
+            name: auth-service
+            port:
+              number: 80
 
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: scrapzee-frontend
-                port:
-                  number: 80
+      - path: /api/pricing
+        pathType: Prefix
+        backend:
+          service:
+            name: pricing-service
+            port:
+              number: 80
 
-          - path: /api/auth
-            pathType: Prefix
-            backend:
-              service:
-                name: auth-service
-                port:
-                  number: 80
+      - path: /api/users
+        pathType: Prefix
+        backend:
+          service:
+            name: user-service
+            port:
+              number: 80
 
-          - path: /api/pricing
-            pathType: Prefix
-            backend:
-              service:
-                name: pricing-service
-                port:
-                  number: 80
-
-          - path: /api/users
-            pathType: Prefix
-            backend:
-              service:
-                name: user-service
-                port:
-                  number: 80
-
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80
