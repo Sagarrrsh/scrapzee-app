@@ -1,13 +1,13 @@
 
 # Project Snapshots
 
----
-# K8S Cluster Display
+
+## K8S Cluster Display
 
 <img width="1322" height="721" alt="Screenshot (31)" src="https://github.com/user-attachments/assets/d05a802c-b8c0-4556-8c78-c03520a8745a" />
 
 ---
-# ArgoCD Display
+## ArgoCD Display
 
 <img width="1310" height="721" alt="Screenshot (32)" src="https://github.com/user-attachments/assets/4c056d18-5a95-4aa0-9bdb-b0d6662101fe" />
 
@@ -16,7 +16,7 @@
 <img width="1317" height="726" alt="Screenshot (34)" src="https://github.com/user-attachments/assets/70ec17db-9073-47ed-acc3-1f8c58a6cbc9" />
 
 ---
-# App Display 
+## App Display 
 
 <img width="1334" height="730" alt="Screenshot (27)" src="https://github.com/user-attachments/assets/ce2e0d3b-fd81-41a7-a006-9f50d56f4cd9" />
 
