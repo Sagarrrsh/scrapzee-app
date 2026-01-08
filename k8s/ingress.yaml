@@ -9,16 +9,14 @@ spec:
     - http:
         paths:
 
-          # Frontend
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: frontend
+                name: scrapzee-frontend
                 port:
                   number: 80
 
-          # AUTH API
           - path: /api/auth
             pathType: Prefix
             backend:
@@ -27,7 +25,6 @@ spec:
                 port:
                   number: 80
 
-          # PRICING API
           - path: /api/pricing
             pathType: Prefix
             backend:
@@ -36,7 +33,6 @@ spec:
                 port:
                   number: 80
 
-          # USER API
           - path: /api/users
             pathType: Prefix
             backend:
