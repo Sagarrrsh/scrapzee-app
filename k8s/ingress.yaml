@@ -40,3 +40,4 @@ spec:
                 name: user-service
                 port:
                   number: 80
+
