@@ -37,6 +37,7 @@ Routing Rules:
 - scrapzee.local/api/auth    → Auth Service
 - scrapzee.local/api/pricing → Pricing Service
 - scrapzee.local/api/users   → User Service
+- scrapzee.local/api/dealer  → Dealer Service
 ```
 
 ### 🔧 Tech Stack
