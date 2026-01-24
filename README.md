@@ -1,449 +1,386 @@
 # 🚀 Scrapzee - Cloud-Native Microservices Platform
 
-> A production-ready scrap management platform built with microservices architecture, containerized with Docker, orchestrated by Kubernetes, and deployed using GitOps principles with ArgoCD.
+<div align="center">
 
-[![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
-[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
-[![ArgoCD](https://img.shields.io/badge/ArgoCD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)](https://argo-cd.readthedocs.io/)
-[![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
-[![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![ArgoCD](https://img.shields.io/badge/ArgoCD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+
+**A production-ready scrap management platform built with microservices architecture, demonstrating enterprise-grade DevOps practices and cloud-native development.**
+
+[Features](#-key-features) • [Architecture](#️-architecture) • [Tech Stack](#-tech-stack) • [Project Structure](#-project-structure) • [Documentation](#-documentation)
+
+</div>
 
 ---
 
 ## 📖 Overview
 
-Scrapzee transforms waste management through a modern microservices platform that enables users to sell recyclable materials at competitive rates with doorstep pickup. Built with enterprise-grade DevOps practices, this project demonstrates end-to-end cloud-native application development and deployment.
+Scrapzee is a modern waste management platform that enables users to sell recyclable materials at competitive rates with convenient doorstep pickup. This project showcases end-to-end cloud-native application development, from microservices design to Kubernetes orchestration and GitOps deployment.
 
-### 🎯 Key Features
+---
 
-- **Microservices Architecture** - Independent services for Auth, Pricing, and User Management
-- **NGINX Ingress Controller** - Smart routing for external traffic to internal services
-- **Modern Frontend** - Responsive React UI with TailwindCSS
-- **GitOps Deployment** - Automated deployments via ArgoCD
-- **Auto-Scaling** - HPA configured for 2-5 replicas based on load
-- **Zero-Downtime Updates** - Rolling deployments with health checks
-- **Production Ready** - Security, monitoring, and persistence included
+## ✨ Key Features
+
+### 🏗️ **Architecture & Design**
+- **Microservices Architecture** - Independent, scalable services for Auth, User, Pricing, and Dealer management
+- **RESTful API Design** - Clean API contracts with proper separation of concerns
+- **Database Per Service** - Data isolation following microservices best practices
+
+### 🚀 **DevOps & Infrastructure**
+- **GitOps Deployment** - Automated continuous delivery with ArgoCD
+- **NGINX Ingress Controller** - Intelligent path-based routing and load balancing
+- **Horizontal Auto-Scaling** - HPA configured for 2-5 replicas based on CPU/Memory utilization
+- **Zero-Downtime Updates** - Rolling deployments with health checks and readiness probes
+
+### 🎨 **User Experience**
+- **Modern React UI** - Responsive design with TailwindCSS
+- **Real-time Pricing** - Dynamic price calculation based on scrap type and location
+- **User Dashboard** - Track scrap requests and view statistics
+- **Admin Panel** - Manage dealers and pricing configurations
+
+### 🔒 **Security & Reliability**
+- **JWT Authentication** - Secure token-based authentication
+- **Password Encryption** - Industry-standard password hashing
+- **Kubernetes Secrets** - Secure credential management
+- **Health Monitoring** - Liveness and readiness probes for all services
 
 ---
 
 ## 🏗️ Architecture
 
-<img width="1161" height="986" alt="Untitled Diagram drawio (1)" src="https://github.com/user-attachments/assets/586b85e2-a335-49b9-978c-203a3b9b8838" />
+<div align="center">
+<img width="1161" alt="Scrapzee Architecture Diagram" src="https://github.com/user-attachments/assets/586b85e2-a335-49b9-978c-203a3b9b8838" />
+</div>
 
+### 🌐 Routing Configuration
 
 ```
-Routing Rules:
-- scrapzee.local/            → Frontend Service
-- scrapzee.local/api/auth    → Auth Service
-- scrapzee.local/api/pricing → Pricing Service
-- scrapzee.local/api/users   → User Service
-- scrapzee.local/api/dealer  → Dealer Service
+External Traffic → NGINX Ingress (scrapzee.local)
+                         ↓
+    ┌────────────────────────────────────────┐
+    │      Path-Based Routing Rules          │
+    ├────────────────────────────────────────┤
+    │  /                → Frontend           │
+    │  /api/auth/*      → Auth Service       │
+    │  /api/pricing/*   → Pricing Service    │
+    │  /api/users/*     → User Service       │
+    │  /api/dealer/*    → Dealer Service     │
+    └────────────────────────────────────────┘
+                         ↓
+              ClusterIP Services
+                         ↓
+         Pod Replicas (Auto-scaled 2-5)
+                         ↓
+          MySQL Database (StatefulSet)
 ```
-
-### 🔧 Tech Stack
-
-**Frontend**
-- React 18 with Hooks
-- Vite (Build Tool)
-- TailwindCSS (Styling)
-- Lucide React (Icons)
-
-**Backend Services**
-- Flask 3.0 (Python)
-- SQLAlchemy (ORM)
-- PyJWT (Authentication)
-- MySQL 8.0 (Database)
-
-**Infrastructure**
-- Docker (Containerization)
-- Kubernetes (Orchestration)
-- NGINX Ingress Controller (Traffic Routing)
-- ArgoCD (GitOps)
-- Helm (Package Management)
-
-**DevOps**
-- GitHub (Version Control)
-- DockerHub (Container Registry)
-- Horizontal Pod Autoscaler (Auto-scaling)
 
 ---
 
-## 🚀 Quick Start
+## 🔧 Tech Stack
 
-### Prerequisites
-- Docker Desktop
-- Kubernetes cluster (Minikube/EKS)
-- kubectl configured
-- Git
+<table>
+<tr>
+<td valign="top" width="50%">
 
-### 1. Clone Repository
-```bash
-git clone https://github.com/Sagarrrsh/scrapzee-app.git
-cd scrapzee-microservices
-```
+### Frontend
+- ⚛️ **React 18** - Modern UI with Hooks
+- ⚡ **Vite** - Lightning-fast build tool
+- 🎨 **TailwindCSS** - Utility-first styling
+- 🎯 **Lucide React** - Beautiful icons
+- 🌐 **Nginx** - Production web server
 
-### 2. Build & Push Images
-```bash
-export DOCKER_USERNAME=your-dockerhub-username
-./build-and-push-all.sh
-```
+### Backend
+- 🐍 **Flask 3.0** - Python microservices
+- 🗃️ **SQLAlchemy** - Database ORM
+- 🔐 **PyJWT** - Token authentication
+- 🐬 **MySQL 8.0** - Relational database
+- 🔒 **Werkzeug** - Password hashing
 
-### 3. Install NGINX Ingress Controller
-```bash
-# For Minikube
-minikube addons enable ingress
+</td>
+<td valign="top" width="50%">
 
-# For cloud (AWS/GCP/Azure)
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
-```
+### Infrastructure
+- 🐳 **Docker** - Containerization
+- ☸️ **Kubernetes** - Container orchestration
+- 🔀 **NGINX Ingress** - Traffic management
+- 🔄 **ArgoCD** - GitOps deployment
+- 📊 **HPA** - Horizontal auto-scaling
 
-### 4. Deploy with ArgoCD
-```bash
-# Install ArgoCD
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+### DevOps
+- 🐙 **GitHub** - Version control
+- 🐋 **Docker Hub** - Container registry
+- 📝 **YAML** - Infrastructure as Code
+- 🔧 **kubectl** - Cluster management
 
-# Deploy application
-./deploy-with-argocd.sh
-```
-
-### 5. Access Application
-```bash
-# Add to /etc/hosts
-echo "127.0.0.1 scrapzee.local" | sudo tee -a /etc/hosts
-
-# For Minikube, start tunnel
-minikube tunnel
-
-# Visit: http://scrapzee.local
-```
+</td>
+</tr>
+</table>
 
 ---
 
 ## 📦 Project Structure
 
 ```
-scrapzee-microservices/
+scrapzee-app/
 ├── services/
-│   ├── auth-service/          # JWT authentication & user registration
-│   ├── pricing-service/       # Dynamic pricing logic
-│   ├── user-service/          # User profiles & scrap requests
-│   └── frontend/              # React UI
+│   ├── auth-service/           # Authentication & authorization
+│   │   ├── Dockerfile
+│   │   ├── app.py
+│   │   └── requirements.txt
+│   ├── pricing-service/        # Dynamic pricing engine
+│   │   ├── Dockerfile
+│   │   ├── app.py
+│   │   └── requirements.txt
+│   ├── user-service/           # User & request management
+│   │   ├── Dockerfile
+│   │   ├── app.py
+│   │   └── requirements.txt
+│   ├── dealer-service/         # Dealer operations
+│   │   ├── Dockerfile
+│   │   ├── app.py
+│   │   └── requirements.txt
+│   ├── frontend/               # React application
+│   │   ├── src/
+│   │   ├── Dockerfile
+│   │   ├── nginx.conf
+│   │   └── package.json
+│   ├── docker-compose.yaml     # Local development
+│   └── init-db.sql            # Database initialization
 ├── k8s/
-│   ├── 00-namespace.yaml      # Namespace definition
-│   ├── 01-secrets.yaml        # Secrets management
-│   ├── 02-mysql.yaml          # MySQL StatefulSet
-│   ├── 03-auth-service.yaml   # Auth deployment + HPA
-│   ├── 04-pricing-service.yaml
-│   ├── 05-user-service.yaml
-│   ├── 06-ingress.yaml        # NGINX Ingress routing rules
-│   └── 08-frontend.yaml       # Frontend deployment
-├
-└── README.md
+│   ├── namespace.yaml         # Kubernetes namespace
+│   ├── secrets.yaml           # Secrets management
+│   ├── mysql.yaml             # Database StatefulSet
+│   ├── auth-service.yaml      # Auth deployment
+│   ├── pricing-service.yaml   # Pricing deployment
+│   ├── user-service.yaml      # User deployment
+│   ├── dealer-service.yaml    # Dealer deployment
+│   ├── frontend.yaml          # Frontend deployment
+│   ├── hpa-*.yaml            # Auto-scaling configs
+│   └── ingress.yaml          # Traffic routing
+├── README.md
+└── project-snapshots.md       # Project documentation
 ```
 
 ---
 
 ## 🎨 Services Overview
 
-### Auth Service (Port 5001)
-- User registration & login
-- JWT token generation & validation
+### 🔐 Auth Service
+**Purpose:** User authentication and authorization
+
+**Features:**
+- User registration with email validation
+- JWT token generation and validation
 - Password hashing with Werkzeug
-- Role-based access (user/dealer/admin)
+- Role-based access control (user/dealer/admin)
 
-**Endpoints:**
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/verify` - Verify JWT token
-
-### Pricing Service (Port 5002)
-- Dynamic pricing for scrap categories
-- Location-based price multipliers
-- Price history tracking
-- Admin price management
-
-**Endpoints:**
-- `GET /api/pricing/categories` - List all categories
-- `POST /api/pricing/calculate` - Calculate price
-- `PUT /api/pricing/categories/:id/price` - Update price (admin)
-
-### User Service (Port 5003)
-- User profile management
-- Scrap pickup requests
-- Dashboard with statistics
-- Request history
-
-**Endpoints:**
-- `GET /api/users/profile` - Get user profile
-- `POST /api/users/requests` - Create pickup request
-- `GET /api/users/dashboard` - User statistics
+**Key Endpoints:**
+- `POST /api/auth/register` - Create new account
+- `POST /api/auth/login` - Authenticate user
+- `GET /api/auth/verify` - Validate JWT token
 
 ---
 
-## 🌐 Ingress Controller Configuration
+### 💰 Pricing Service
+**Purpose:** Dynamic scrap pricing management
 
-### How It Works
+**Features:**
+- Multi-category scrap pricing
+- Location-based price multipliers
+- Historical price tracking
+- Admin price configuration
 
-The NGINX Ingress Controller acts as the single entry point for all external traffic:
+**Key Endpoints:**
+- `GET /api/pricing/categories` - List all scrap categories
+- `POST /api/pricing/calculate` - Calculate total price
+- `PUT /api/pricing/categories/:id/price` - Update pricing (admin)
 
-1. **Path-based routing** - Routes requests based on URL paths
-2. **Service discovery** - Automatically discovers backend services
-3. **Load balancing** - Distributes traffic across pod replicas
-4. **SSL termination** - Handles HTTPS certificates (when configured)
+---
 
-### Routing Rules
+### 👤 User Service
+**Purpose:** User profile and request management
 
-```yaml
-# Frontend (React SPA)
-/                     → frontend-service:80
+**Features:**
+- User profile management
+- Scrap pickup request creation
+- Request status tracking
+- Personal dashboard with analytics
 
-# Backend APIs
-/api/auth/*           → auth-service:80
-/api/pricing/*        → pricing-service:80
-/api/users/*          → user-service:80
-```
+**Key Endpoints:**
+- `GET /api/users/profile` - Fetch user profile
+- `POST /api/users/requests` - Create pickup request
+- `GET /api/users/dashboard` - View statistics
 
-### Benefits Over API Gateway
+---
 
-- ✅ **Native Kubernetes** - Built-in K8s resource
-- ✅ **Simpler Architecture** - One less layer to manage
-- ✅ **Better Performance** - Direct routing without extra hop
-- ✅ **Standard Solution** - Industry-standard approach
-- ✅ **Cost-effective** - No additional infrastructure needed
+### 🚚 Dealer Service
+**Purpose:** Dealer operations and request handling
+
+**Features:**
+- Dealer profile management
+- Request assignment and tracking
+- Service area management
+- Performance analytics
+
+**Key Endpoints:**
+- `GET /api/dealer/requests` - View assigned requests
+- `PUT /api/dealer/requests/:id/status` - Update request status
+- `GET /api/dealer/stats` - View performance metrics
 
 ---
 
 ## ☸️ Kubernetes Resources
 
-**Deployed Resources:**
-- **9 Pods** (1 MySQL + 8 microservice replicas)
-- **4 Services** (ClusterIP for internal communication)
-- **3 HorizontalPodAutoscalers** (Auto-scaling 2-5 replicas)
-- **1 StatefulSet** (MySQL with 10Gi PersistentVolume)
-- **1 Ingress** (NGINX for external routing)
+### Deployed Components
 
-**Resource Limits per Service:**
-- CPU: 100m (request) - 500m (limit)
-- Memory: 128Mi (request) - 512Mi (limit)
+| Resource Type | Count | Purpose |
+|--------------|-------|---------|
+| **Namespace** | 1 | Resource isolation |
+| **Deployments** | 5 | Service orchestration |
+| **Services** | 5 | Internal networking |
+| **StatefulSet** | 1 | MySQL database |
+| **PersistentVolume** | 1 | 10Gi data storage |
+| **HPA** | 5 | Auto-scaling (2-5 replicas) |
+| **Ingress** | 1 | External traffic routing |
+| **Secrets** | 1 | Credentials management |
+
+### Resource Allocation
+
+**Per Service Pod:**
+- **CPU Request:** 100m
+- **CPU Limit:** 500m
+- **Memory Request:** 128Mi
+- **Memory Limit:** 512Mi
+
+**Auto-Scaling Triggers:**
+- CPU utilization > 80%
+- Memory utilization > 80%
+
+---
+
+## 🌐 NGINX Ingress Benefits
+
+### Why NGINX Ingress Over API Gateway?
+
+✅ **Native Kubernetes Integration** - Built-in K8s resource, no additional infrastructure
+
+✅ **Simplified Architecture** - One less component to manage and maintain
+
+✅ **Superior Performance** - Direct routing without extra network hops
+
+✅ **Industry Standard** - Battle-tested solution used by thousands of organizations
+
+✅ **Cost Effective** - No additional cloud services or licensing fees
+
+✅ **Path-Based Routing** - Intelligent traffic distribution based on URL patterns
+
+✅ **Load Balancing** - Automatic distribution across pod replicas
+
+✅ **SSL/TLS Termination** - Centralized certificate management
 
 ---
 
 ## 🔄 GitOps Workflow
 
 ```
-1. Developer pushes code to GitHub
+Developer commits code
          ↓
-2. ArgoCD polls repository (every 3 min)
+GitHub repository updated
          ↓
-3. Detects changes in k8s/ manifests
+ArgoCD detects changes (3-min poll)
          ↓
-4. Automatically syncs to Kubernetes cluster
+Validates Kubernetes manifests
          ↓
-5. Rolling update with zero downtime
+Syncs to cluster automatically
          ↓
-6. Self-healing on drift detection
+Rolling update with zero downtime
+         ↓
+Health checks verify deployment
+         ↓
+Self-healing on drift detection
 ```
 
-**Benefits:**
-- ✅ Git as single source of truth
-- ✅ Automated deployments
-- ✅ Easy rollbacks (git revert)
-- ✅ Audit trail of all changes
-- ✅ Declarative configuration
-
----
-
-## 🧪 Testing
-
-### Local Development
-```bash
-# Start all services with Docker Compose
-cd infrastructure
-docker-compose up
-```
-
-### API Testing
-```bash
-# Register user
-curl -X POST http://scrapzee.local/api/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{"email":"test@example.com","password":"test123","full_name":"Test User"}'
-
-# Get pricing categories
-curl http://scrapzee.local/api/pricing/categories
-```
-
-### Load Testing
-```bash
-# Install hey
-go install github.com/rakyll/hey@latest
-
-# Load test via Ingress
-hey -n 10000 -c 100 http://scrapzee.local/api/auth/health
-```
-
----
-
-## 📊 Monitoring & Observability
-
-**ArgoCD Dashboard:**
-- Application sync status
-- Resource health monitoring
-- Git commit history
-- Real-time sync visualization
-
-**Kubernetes Metrics:**
-```bash
-# View pod metrics
-kubectl top pods -n scrapzee
-
-# View HPA status
-kubectl get hpa -n scrapzee
-
-# View ingress status
-kubectl get ingress -n scrapzee
-
-# View logs
-kubectl logs -f deployment/auth-service -n scrapzee
-```
-
-**Ingress Monitoring:**
-```bash
-# Check ingress controller logs
-kubectl logs -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx
-
-# View ingress details
-kubectl describe ingress scrapzee-ingress -n scrapzee
-```
-
----
-
-## 🔐 Security Features
-
-- ✅ JWT-based authentication
-- ✅ Password hashing (Werkzeug)
-- ✅ Kubernetes Secrets for sensitive data
-- ✅ CORS configuration via Ingress
-- ✅ Network policies ready
-- ✅ RBAC enabled
-- ✅ Non-root containers
-- ✅ TLS/SSL ready (cert-manager compatible)
-
----
-
-## 🚢 Deployment Options
-
-### Option 1: ArgoCD (Recommended)
-```bash
-./deploy-with-argocd.sh
-```
-
-### Option 2: Kubectl
-```bash
-kubectl apply -f k8s/
-```
-
-### Option 3: Helm
-```bash
-helm install scrapzee ./helm/scrapzee
-```
-
----
-
-## 📈 Scaling
-
-**Horizontal Pod Autoscaler (HPA):**
-- Min replicas: 2
-- Max replicas: 5
-- Target CPU: 80%
-- Target Memory: 80%
-
-**Manual Scaling:**
-```bash
-kubectl scale deployment auth-service --replicas=3 -n scrapzee
-```
-
-**Ingress Scaling:**
-The NGINX Ingress Controller automatically handles increased traffic by load balancing across all available pod replicas.
-
----
-
-## 🐛 Troubleshooting
-
-**View Logs:**
-```bash
-kubectl logs -f deployment/frontend -n scrapzee
-```
-
-**Check Ingress Status:**
-```bash
-kubectl get ingress -n scrapzee
-kubectl describe ingress scrapzee-ingress -n scrapzee
-```
-
-**Test Backend Connectivity:**
-```bash
-# Test from within cluster
-kubectl run -it --rm debug --image=curlimages/curl --restart=Never -- sh
-curl http://auth-service.scrapzee.svc.cluster.local/health
-```
-
-**Check Ingress Controller:**
-```bash
-kubectl get pods -n ingress-nginx
-kubectl logs -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx
-```
-
-**Force ArgoCD Sync:**
-```bash
-kubectl patch application scrapzee-microservices -n argocd \
-  --type merge -p '{"operation":{"sync":{}}}'
-```
+### Benefits
+- 🎯 Git as single source of truth
+- ♻️ Automated deployments
+- ⏮️ Easy rollbacks via git revert
+- 📝 Complete audit trail
+- 🔒 Declarative configuration
+- 🔍 Version control for infrastructure
 
 ---
 
 ## 🎓 Learning Outcomes
 
-This project demonstrates:
-- ✅ Microservices architecture design
-- ✅ RESTful API development
-- ✅ Docker containerization
-- ✅ Kubernetes orchestration
-- ✅ NGINX Ingress Controller configuration
+This project demonstrates practical implementation of:
+
+- ✅ Microservices architecture patterns
+- ✅ RESTful API design and development
+- ✅ Docker containerization techniques
+- ✅ Kubernetes orchestration and management
+- ✅ NGINX Ingress configuration
 - ✅ GitOps principles with ArgoCD
-- ✅ CI/CD pipeline implementation
-- ✅ Cloud-native application patterns
-- ✅ Infrastructure as Code
-- ✅ Auto-scaling & high availability
-- ✅ Zero-downtime deployments
-- ✅ Path-based routing strategies
+- ✅ Cloud-native application development
+- ✅ Infrastructure as Code (IaC)
+- ✅ Horizontal auto-scaling strategies
+- ✅ Zero-downtime deployment practices
+- ✅ Security best practices (JWT, secrets, RBAC)
+- ✅ Service mesh readiness
 
 ---
 
 ## 🛣️ Roadmap
 
-- [ ] Add Istio service mesh for advanced traffic management
-- [ ] Implement Prometheus monitoring
-- [ ] Add Grafana dashboards
-- [ ] Integrate ELK stack for logging
-- [ ] Add Redis caching layer
-- [ ] Implement rate limiting in Ingress
-- [ ] Add cert-manager for automatic TLS
-- [ ] Add end-to-end tests
+### Phase 1: Enhanced Monitoring
+- [ ] Prometheus metrics integration
+- [ ] Grafana dashboards
+- [ ] ELK stack for centralized logging
+- [ ] Distributed tracing with Jaeger
+
+### Phase 2: Advanced Features
+- [ ] Redis caching layer
+- [ ] Message queue (RabbitMQ/Kafka)
+- [ ] Service mesh with Istio
+- [ ] Rate limiting and throttling
+
+### Phase 3: Security & Compliance
+- [ ] Cert-manager for automatic TLS
+- [ ] Network policies implementation
+- [ ] OAuth2 integration
+- [ ] Automated security scanning
+
+### Phase 4: Testing & Quality
+- [ ] End-to-end test suite
+- [ ] Performance testing framework
+- [ ] Chaos engineering experiments
 - [ ] Multi-region deployment
+
+---
+
+## 📚 Documentation
+
+- **[Deployment Guide](docs/DEPLOYMENT.md)** - Complete deployment instructions
+- **[API Documentation](docs/API.md)** - Endpoint specifications
+- **[Architecture Guide](docs/ARCHITECTURE.md)** - Detailed system design
+- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues and solutions
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please follow these steps:
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
+
+Please read our [Contributing Guidelines](CONTRIBUTING.md) for more details.
 
 ---
 
@@ -455,9 +392,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Author
 
-**Your Name**
-- GitHub: [@Sagar S H](https://github.com/Sagarrrsh)
-- LinkedIn: [Sagar S H](https://linkedin.com/in/sagar-s-h-212914249)
+**Sagar S H**
+
+- 🐙 GitHub: [@Sagarrrsh](https://github.com/Sagarrrsh)
+- 💼 LinkedIn: [Sagar S H](https://linkedin.com/in/sagar-s-h-212914249)
+- 📧 Email: [Contact](mailto:your.email@example.com)
 
 ---
 
@@ -465,21 +404,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Built as a portfolio project to demonstrate modern DevOps practices
 - Inspired by real-world e-waste management challenges
-- Thanks to the NGINX Ingress Controller team for excellent documentation
-- Thanks to the open-source community for amazing tools
+- Special thanks to the open-source community for amazing tools
+- NGINX Ingress Controller documentation and community
+- ArgoCD project for GitOps excellence
 
 ---
 
 ## 📞 Support
 
-For questions or support, please open an issue on GitHub or reach out via email.
+- 💬 Open an [Issue](https://github.com/Sagarrrsh/scrapzee-app/issues) for bug reports
+- 💡 Start a [Discussion](https://github.com/Sagarrrsh/scrapzee-app/discussions) for questions
+- ⭐ Star this repository if you find it helpful!
 
 ---
 
 <div align="center">
 
-**⭐ Star this repository if you find it helpful!**
+**Made with ❤️ and ☕ by Sagar S H**
 
-Made with ❤️ and ☕
+[![Star on GitHub](https://img.shields.io/github/stars/Sagarrrsh/scrapzee-app?style=social)](https://github.com/Sagarrrsh/scrapzee-app)
 
 </div>
