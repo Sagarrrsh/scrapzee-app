@@ -1,4 +1,4 @@
-![ChatGPT Image Jan 27, 2026, 09_06_09 PM](https://github.com/user-attachments/assets/7c61f51a-6e0d-4a09-81dd-b9703e27b65a)![ChatGPT Image Jan 27, 2026, 09_06_09 PM](https://github.com/user-attachments/assets/00b39754-b194-4005-bf6f-51ac55b78596)# 🚀 Scrapzee - Cloud-Native Microservices Platform
+# 🚀 Scrapzee - Cloud-Native Microservices Platform
 
 <div align="center">
 
