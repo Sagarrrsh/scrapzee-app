@@ -1,4 +1,4 @@
-# 🚀 Scrapzee - Cloud-Native Microservices Platform
+![ChatGPT Image Jan 27, 2026, 09_06_09 PM](https://github.com/user-attachments/assets/7c61f51a-6e0d-4a09-81dd-b9703e27b65a)![ChatGPT Image Jan 27, 2026, 09_06_09 PM](https://github.com/user-attachments/assets/00b39754-b194-4005-bf6f-51ac55b78596)# 🚀 Scrapzee - Cloud-Native Microservices Platform
 
 <div align="center">
 
@@ -52,9 +52,7 @@ Scrapzee is a modern waste management platform that enables users to sell recycl
 
 ## 🏗️ Architecture
 
-<div align="center">
-<img width="1161" alt="Scrapzee Architecture Diagram" src="https://github.com/user-attachments/assets/586b85e2-a335-49b9-978c-203a3b9b8838" />
-</div>
+![ChatGPT Image Jan 27, 2026, 09_06_09 PM](https://github.com/user-attachments/assets/bf8f25ff-8657-4577-a73a-0521dc26156d)
 
 ### 🌐 Routing Configuration
 
