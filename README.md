@@ -15,15 +15,6 @@
 
 ---
 
-### 📸 CI/CD Pipeline & Security
-
-![GitHub Actions CI/CD Pipeline](https://github.com/Sagarrrsh/scrapzee-app/assets/your-user-id/workflow-screenshot.png)
-
-![Trivy Security Scan Results](https://github.com/Sagarrrsh/scrapzee-app/assets/your-user-id/trivy-scan-screenshot.png)
-
-</div>
-
----
 
 ## 📖 Overview
 
