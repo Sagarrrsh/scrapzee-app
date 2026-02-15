@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        service:
+        services:
           - auth-service
           - dealer-service
           - pricing-service
