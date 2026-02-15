@@ -41,5 +41,5 @@ jobs:
           context: services/${{ matrix.service }}
           push: true
           tags: |
-            ghcr.io/${{ env.OWNER_LOWER }}/demo-scrap/scrapzee-${{ matrix.service }}:latest
-            ghcr.io/${{ env.OWNER_LOWER }}/demo-scrap/scrapzee-${{ matrix.service }}:${{ github.sha }}
+            ghcr.io/${{ env.OWNER_LOWER }}/scrapzee-app/scrapzee-${{ matrix.service }}:latest
+            ghcr.io/${{ env.OWNER_LOWER }}/scrapzee-app/scrapzee-${{ matrix.service }}:${{ github.sha }}
