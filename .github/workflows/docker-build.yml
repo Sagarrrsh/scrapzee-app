@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      security-events: write
 
     strategy:
       matrix:
@@ -36,7 +37,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       # Build image locally (do NOT push yet)
-      - name: Build Docker image
+      - name: Build Docker image (local)
         uses: docker/build-push-action@v5
         with:
           context: services/${{ matrix.services }}
@@ -44,7 +45,7 @@ jobs:
           load: true
           tags: scrapzee-${{ matrix.services }}:scan
 
-      # Trivy scan - FAIL if CRITICAL found
+      # Trivy Scan (TABLE output in logs)
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.20.0
         with:
@@ -52,9 +53,10 @@ jobs:
           format: table
           exit-code: 1
           ignore-unfixed: true
+          vuln-type: os,library
           severity: CRITICAL
 
-      # Only runs if Trivy passes
+      # Push only if Trivy passes
       - name: Build & Push Docker image
         uses: docker/build-push-action@v5
         with:
