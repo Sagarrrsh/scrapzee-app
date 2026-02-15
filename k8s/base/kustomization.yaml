@@ -1,0 +1,63 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # 1. Namespace (must exist first)
+  - namespace.yaml
+
+  # 2. Network Policies (apply early so pods start with correct rules)
+  - network-policies/1-default-deny-all.yaml
+  - network-policies/2-allow-dns-egress.yaml
+  - network-policies/3-allow-frontend.yaml
+  - network-policies/4-allow-auth.yaml
+  - network-policies/5-allow-dealer.yaml
+  - network-policies/6-allow-user.yaml
+  - network-policies/7-allow-pricing.yaml
+  - network-policies/8-allow-mysql.yaml
+  - network-policies/9-allow-backend-to-mysql-egress.yaml
+  - network-policies/10-allow-backend-to-backend.yaml
+
+  # 3. Secrets (needed by pods during startup)
+  - secrets/scrapzee-secrets.yaml
+
+  # 4. Services (stable + canary must exist before Rollouts)
+  - services/frontend-svc-canary.yaml
+  - services/auth-svc-canary.yaml
+  - services/dealer-svc-canary.yaml
+  - services/user-svc-canary.yaml
+  - services/pricing-svc-canary.yaml
+  - services/mysql-svc.yaml
+
+  # 5. Main Ingress (required for Argo traffic routing)
+  - ingress/ingress.yaml
+
+  # 6. Rollouts (replaces Deployments for canary)
+  - deployments/frontend-rollout.yaml
+  - deployments/auth-service-rollout.yaml
+  - deployments/dealer-service-rollout.yaml
+  - deployments/user-service-rollout.yaml
+  - deployments/pricing-service-rollout.yaml
+
+  # 7. Canary Ingress (used during rollout traffic shifting)
+  - ingress/ingress-canary-auth.yaml
+  - ingress/ingress-canary-dealer.yaml
+  - ingress/ingress-canary-frontend.yaml
+  - ingress/ingress-canary-pricing.yaml
+  - ingress/ingress-canary-user.yaml
+
+  # 8. MySQL (stateful component - not part of canary)
+  - deployments/mysql.yaml
+
+  # 9. HPA (apply after workloads exist)
+  - hpa/user-hpa.yaml
+  - hpa/auth-hpa.yaml
+  - hpa/dealer-hpa.yaml
+  - hpa/pricing-hpa.yaml
+  - hpa/frontend-hpa.yaml
+
+  # 10. Analysis Templates (optional - requires Prometheus)
+  # - analysis/auth-service-analysis.yaml
+  # - analysis/user-service-analysis.yaml
+  # - analysis/dealer-service-analysis.yaml
+  # - analysis/pricing-service-analysis.yaml
+  # - analysis/frontend-analysis.yaml
