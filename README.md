@@ -1,4 +1,4 @@
-# 🚀 Scrapzee - Cloud-Native Microservices Platform
+#  Scrapzee - Cloud-Native Microservices Platform
 
 <div align="center">
 
@@ -22,6 +22,7 @@
 Scrapzee is a production-ready scrap management platform built with microservices architecture, demonstrating advanced DevOps practices including canary deployments, network security policies, and automated GitOps workflows.
 
 **What sets this project apart:**
+- 🔨 CI/CD pipeline with GitHub Actions, Trivy scanning, and Docker Hub
 - 🎯 Progressive delivery with Argo Rollouts
 - 🔒 Zero-trust networking with 10-layer security policies
 - 🔄 GitOps automation with ArgoCD
@@ -31,6 +32,13 @@ Scrapzee is a production-ready scrap management platform built with microservice
 ---
 
 ## 🚀 DevOps Features
+
+### CI/CD Pipeline (GitHub Actions)
+**Automated build and security scanning**:
+- Docker containerization of all services
+- Trivy security scanning for critical vulnerabilities
+- Automated push to Docker Hub registry
+- Multi-stage builds for optimized images
 
 ### Progressive Delivery (Argo Rollouts)
 **Canary deployment strategy** with automated traffic shifting:
@@ -124,6 +132,21 @@ Scrapzee is a production-ready scrap management platform built with microservice
 - Network Policies: Security rules
 - Secrets: Encrypted credentials
 
+### CI/CD Workflow
+
+**GitHub Actions Pipeline**
+- Triggered on push to main branch
+- Multi-stage Docker builds for each service
+- Trivy scans for critical vulnerabilities
+- Automated push to Docker Hub
+- Version tagging with Git commit SHA
+
+**Container Security**
+- Trivy scans for CVEs in dependencies
+- Blocks builds with critical vulnerabilities
+- Base image security best practices
+- Non-root user execution
+
 ---
 
 ## 📦 Project Structure
@@ -211,8 +234,11 @@ scrapzee-app/
 - Flask 3.0, SQLAlchemy, PyJWT, MySQL 8.0
 
 ### DevOps Infrastructure
-- **Kubernetes** - Container orchestration
 - **Docker** - Containerization
+- **Docker Hub** - Container registry
+- **GitHub Actions** - CI/CD pipeline
+- **Trivy** - Container security scanning
+- **Kubernetes** - Container orchestration
 - **Argo Rollouts** - Progressive delivery
 - **ArgoCD** - GitOps automation
 - **NGINX Ingress** - Traffic management
@@ -347,16 +373,20 @@ kubectl exec -it <pod-name> -n scrapzee -- wget -O- http://auth-svc:5001/health
 - [ ] OAuth2/OIDC
 - [ ] Pod Security Standards
 
-### Phase 4: CI/CD
-- [ ] GitHub Actions pipeline
-- [ ] Automated testing
+### Phase 4: CI/CD Enhancement
+- [ ] Automated testing in pipeline
 - [ ] Load testing with K6
+- [ ] Multi-environment deployments (dev/staging/prod)
+- [ ] Semantic versioning automation
 
 ---
 
 ## 🎓 What You'll Learn
 
 **DevOps Practices:**
+- CI/CD with GitHub Actions
+- Container security with Trivy
+- Docker multi-stage builds
 - GitOps with ArgoCD
 - Progressive delivery with Argo Rollouts
 - Zero-trust networking
