@@ -15,7 +15,7 @@ A visual overview of the Kubernetes cluster, ArgoCD deployment flow, and the run
 <br>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c3595c59-7b62-467c-b1ee-16dc3b887946" width="70%" />
+  <img src="https://github.com/user-attachments/assets/d62e491f-d4e7-44e2-a171-9335e535593a" width="70%" />
 </p>
 
 ---
