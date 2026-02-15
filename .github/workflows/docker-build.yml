@@ -38,8 +38,8 @@ jobs:
       - name: Build & push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: services/${{ matrix.service }}
+          context: services/${{ matrix.services }}
           push: true
           tags: |
-            ghcr.io/${{ env.OWNER_LOWER }}/scrapzee-app/scrapzee-${{ matrix.service }}:latest
-            ghcr.io/${{ env.OWNER_LOWER }}/scrapzee-app/scrapzee-${{ matrix.service }}:${{ github.sha }}
+            ghcr.io/${{ env.OWNER_LOWER }}/scrapzee-app/scrapzee-${{ matrix.services }}:latest
+            ghcr.io/${{ env.OWNER_LOWER }}/scrapzee-app/scrapzee-${{ matrix.services }}:${{ github.sha }}
