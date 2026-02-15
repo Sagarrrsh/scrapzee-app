@@ -13,8 +13,7 @@
 
 [Overview](#-overview) • [DevOps Features](#-devops-features) • [Components](#-components) • [Quick Start](#-quick-start)
 
----
-
+</div>
 
 ---
 
