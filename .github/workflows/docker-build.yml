@@ -35,7 +35,27 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build & push Docker image
+      # Build image locally (do NOT push yet)
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: services/${{ matrix.services }}
+          push: false
+          load: true
+          tags: scrapzee-${{ matrix.services }}:scan
+
+      # Trivy scan - FAIL if CRITICAL found
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          image-ref: scrapzee-${{ matrix.services }}:scan
+          format: table
+          exit-code: 1
+          ignore-unfixed: true
+          severity: CRITICAL
+
+      # Only runs if Trivy passes
+      - name: Build & Push Docker image
         uses: docker/build-push-action@v5
         with:
           context: services/${{ matrix.services }}
