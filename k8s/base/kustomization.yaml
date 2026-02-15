@@ -30,23 +30,24 @@ resources:
 
   # 5. Main Ingress (required for Argo traffic routing)
   - ingress/ingress.yaml
+  
+  # 6. MySQL (stateful component - not part of canary)
+  - deployments/mysql.yaml
 
-  # 6. Rollouts (replaces Deployments for canary)
+  # 7. Rollouts (replaces Deployments for canary)
   - deployments/frontend-rollout.yaml
   - deployments/auth-service-rollout.yaml
   - deployments/dealer-service-rollout.yaml
   - deployments/user-service-rollout.yaml
   - deployments/pricing-service-rollout.yaml
 
-  # 7. Canary Ingress (used during rollout traffic shifting)
+  # 8. Canary Ingress (used during rollout traffic shifting)
   - ingress/ingress-canary-auth.yaml
   - ingress/ingress-canary-dealer.yaml
   - ingress/ingress-canary-frontend.yaml
   - ingress/ingress-canary-pricing.yaml
   - ingress/ingress-canary-user.yaml
 
-  # 8. MySQL (stateful component - not part of canary)
-  - deployments/mysql.yaml
 
   # 9. HPA (apply after workloads exist)
   - hpa/user-hpa.yaml
@@ -55,9 +56,4 @@ resources:
   - hpa/pricing-hpa.yaml
   - hpa/frontend-hpa.yaml
 
-  # 10. Analysis Templates (optional - requires Prometheus)
-  # - analysis/auth-service-analysis.yaml
-  # - analysis/user-service-analysis.yaml
-  # - analysis/dealer-service-analysis.yaml
-  # - analysis/pricing-service-analysis.yaml
-  # - analysis/frontend-analysis.yaml
+  
