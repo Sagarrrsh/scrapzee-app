@@ -1,4 +1,4 @@
-#  Scrapzee - Cloud-Native Microservices Platform
+# 🚀 Scrapzee - Cloud-Native Microservices Platform
 
 <div align="center">
 
@@ -12,6 +12,14 @@
 **Enterprise-grade waste management platform showcasing progressive delivery, zero-trust networking, and GitOps automation**
 
 [Overview](#-overview) • [DevOps Features](#-devops-features) • [Components](#-components) • [Quick Start](#-quick-start)
+
+---
+
+### 📸 CI/CD Pipeline & Security
+
+![GitHub Actions CI/CD Pipeline](https://github.com/Sagarrrsh/scrapzee-app/assets/your-user-id/workflow-screenshot.png)
+
+![Trivy Security Scan Results](https://github.com/Sagarrrsh/scrapzee-app/assets/your-user-id/trivy-scan-screenshot.png)
 
 </div>
 
