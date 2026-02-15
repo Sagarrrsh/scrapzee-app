@@ -8,3 +8,7 @@ requests==2.32.4
 PyJWT==2.8.0
 gunicorn==22.0.0
 urllib3==2.6.3
+
+# force-fix transitive vulns
+jaraco.context==6.1.0
+wheel==0.46.2
