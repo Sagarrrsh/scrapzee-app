@@ -7,7 +7,7 @@ spec:
   description: Scrapzee GitOps Project
 
   sourceRepos:
-    - "https://github.com/Sagarrrsh/scrapzee-k8s.git"
+    - "https://github.com/Sagarrrsh/scrapzee-app.git"
 
   destinations:
     - namespace: scrapzee
@@ -50,4 +50,5 @@ spec:
 
     - group: autoscaling
       kind: HorizontalPodAutoscaler
+
 
