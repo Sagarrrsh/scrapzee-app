@@ -7,7 +7,7 @@ spec:
   project: scrapzee
 
   source:
-    repoURL: "https://github.com/Sagarrrsh/scrapzee-k8s.git"
+    repoURL: "https://github.com/Sagarrrsh/scrapzee-app.git"
     targetRevision: main
     path: base
 
@@ -30,6 +30,7 @@ spec:
         duration: 5s
         factor: 2
         maxDuration: 1m
+
 
 
 
