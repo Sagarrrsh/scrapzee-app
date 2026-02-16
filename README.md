@@ -31,6 +31,12 @@ Scrapzee is a production-ready scrap management platform built with microservice
 
 ---
 
+## 📖 Architecture Overview
+
+<img width="1212" height="603" alt="Screenshot (45)" src="https://github.com/user-attachments/assets/02f33cc6-18e2-4680-b1e9-1d177b7130da" />
+
+---
+
 ## 🚀 DevOps Features
 
 ### CI/CD Pipeline (GitHub Actions)
