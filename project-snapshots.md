@@ -18,6 +18,10 @@ A visual overview of the Kubernetes cluster, ArgoCD deployment flow, and the run
   <img src="https://github.com/user-attachments/assets/d62e491f-d4e7-44e2-a171-9335e535593a" width="70%" />
 </p>
 
+<img width="1331" height="638" alt="Screenshot (47)" src="https://github.com/user-attachments/assets/edff12f7-1596-4e78-aeb6-73e0afcf6b5b" />
+
+<img width="1345" height="684" alt="Screenshot (56)" src="https://github.com/user-attachments/assets/d116749b-4c0e-46f1-87b8-835b915ea2cd" />
+
 ---
 
 ## 🚀 ArgoCD Dashboard
@@ -53,3 +57,13 @@ A visual overview of the Kubernetes cluster, ArgoCD deployment flow, and the run
 </p>
 
 ---
+
+## Monitoring & Observability 
+<img width="1352" height="686" alt="Screenshot (50)" src="https://github.com/user-attachments/assets/1c011e36-166a-4a79-9b80-098b7b476aa5" />
+<img width="1351" height="690" alt="Screenshot (51)" src="https://github.com/user-attachments/assets/2c43f170-3f2a-466e-8190-27b2505ffa7a" />
+<img width="1347" height="681" alt="Screenshot (52)" src="https://github.com/user-attachments/assets/b3545a85-95a0-447d-a615-3ebfc89ec295" />
+<img width="1343" height="683" alt="Screenshot (49)" src="https://github.com/user-attachments/assets/9d0d5652-965a-4b5f-a02d-4771605d66a8" />
+<img width="1351" height="684" alt="Screenshot (53)" src="https://github.com/user-attachments/assets/c0ba76a8-f79c-4a44-8883-fdeced3dadfa" />
+
+
+
