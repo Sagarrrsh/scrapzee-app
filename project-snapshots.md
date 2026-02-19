@@ -19,13 +19,9 @@
 <br>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/edff12f7-1596-4e78-aeb6-73e0afcf6b5b" width="70%" />
-</p>
-
-<br>
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/d116749b-4c0e-46f1-87b8-835b915ea2cd" width="70%" />
+  <img src="https://github.com/user-attachments/assets/edff12f7-1596-4e78-aeb6-73e0afcf6b5b" width="48%" />
+  &nbsp;
+  <img src="https://github.com/user-attachments/assets/d116749b-4c0e-46f1-87b8-835b915ea2cd" width="48%" />
 </p>
 
 ---
@@ -67,25 +63,17 @@
 ## 📊 Monitoring & Observability
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/1c011e36-166a-4a79-9b80-098b7b476aa5" width="70%" />
+  <img src="https://github.com/user-attachments/assets/1c011e36-166a-4a79-9b80-098b7b476aa5" width="48%" />
+  &nbsp;
+  <img src="https://github.com/user-attachments/assets/b3545a85-95a0-447d-a615-3ebfc89ec295" width="48%" />
 </p>
 
 <br>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b3545a85-95a0-447d-a615-3ebfc89ec295" width="70%" />
-</p>
-
-<br>
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/9d0d5652-965a-4b5f-a02d-4771605d66a8" width="70%" />
-</p>
-
-<br>
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/c0ba76a8-f79c-4a44-8883-fdeced3dadfa" width="70%" />
+  <img src="https://github.com/user-attachments/assets/9d0d5652-965a-4b5f-a02d-4771605d66a8" width="48%" />
+  &nbsp;
+  <img src="https://github.com/user-attachments/assets/c0ba76a8-f79c-4a44-8883-fdeced3dadfa" width="48%" />
 </p>
 
 ---
