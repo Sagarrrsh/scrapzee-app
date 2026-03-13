@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: sagar1003/scrapzee-frontend:v2
+          image: sagar1003/scrapzee-frontend:v4
           ports:
             - containerPort: 80
               protocol: TCP
@@ -68,6 +68,7 @@ spec:
         - pause: {duration: 2m}
         - setWeight: 80
         - pause: {duration: 1m}
+
 
 
 
