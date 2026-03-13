@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: "https://github.com/Sagarrrsh/scrapzee-app.git"
     targetRevision: main
-    path: base
+    path: k8s/base
 
   destination:
     server: https://kubernetes.default.svc
@@ -30,6 +30,7 @@ spec:
         duration: 5s
         factor: 2
         maxDuration: 1m
+
 
 
 
